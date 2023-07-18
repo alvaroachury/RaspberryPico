@@ -20,4 +20,4 @@ pwm.freq(50)
 while True:
     position = int(input("Insert position value between 1000 to 8000 ... "))
     pwm.duty_u16(position)
-    sleep(0.1)
+    time.sleep(0.1)
