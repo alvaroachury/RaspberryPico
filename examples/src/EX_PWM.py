@@ -1,14 +1,23 @@
-from time import sleep
-from machine import Pin, PWM
+""" Basic PWM servomotor control example.
 
-pwm = PWM(Pin(16))
+    The circuit:
+      - Servomotor SG90 powered between GND (brown servo wire) and VBUS (red servo wire) RPiPico terminals.
+        Control signal (orange servo wire) connected to the GP16 terminal.
+
+    created 2023
+    by Alvaro Achury
+    modified 18 Aug 2023
+    by Alvaro Achury
+    
+"""
+
+import time 
+import machine
+
+pwm = machine.PWM(machine.Pin(16))
 pwm.freq(50)
 
 while True:
-#     for position in range(1000,4500,50):
-    position = int(input("Insert position ... "))
+    position = int(input("Insert position value between 1000 to 8000 ... "))
     pwm.duty_u16(position)
-    sleep(0.01)
-#     for position in range(9000,1000,-50):
-#         pwm.duty_u16(position)
-#         sleep(0.01)
+    sleep(0.1)

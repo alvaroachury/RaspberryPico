@@ -1,10 +1,27 @@
+""" Basic blinking LED example.
+    The Raspberry Pi Pico has a on board led connected to the GP25 terminal.
+
+    The circuit:
+      - On board LED connected to the GP25 
+
+    created 2023
+    by Alvaro Achury
+    modified 18 Aug 2023
+    by Alvaro Achury
+    
+"""
+
 import machine
-import timmer
+import time
 
 led = machine.Pin(15, machine.Pin.OUT)
 
 while True:
     led.value(1)
-    timmer.sleep(1)
+    time.sleep(1)
     led.value(0)
-    timmer.sleep(1)
+    time.sleep(1)
+    
+    ## alternative solution
+    # led.toggle()
+    # time.sleep(1)
